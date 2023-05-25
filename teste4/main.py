@@ -18,9 +18,10 @@ for i in range(len(dfc)):
     result = df[filter]
 
     print(f'{len(result)} resultados na coluna: {dfc[i]}')
-
+    print(f'RESULTADO: {result}')
+    
     if len(result) > 0:
-      result_list.append(result)
+        result_list.append(result)
 
 
 dfr = pd.concat(result_list).drop_duplicates()
