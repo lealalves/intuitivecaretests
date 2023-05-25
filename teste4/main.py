@@ -11,21 +11,19 @@ dfr = pd.DataFrame()
 
 dfc = list(df.columns)
 
+result_list = []
+
 for i in range(len(dfc)):
     filter = df[dfc[i]].str.contains('registro', flags=re.UNICODE, case=False)
     result = df[filter]
 
     print(f'{len(result)} resultados na coluna: {dfc[i]}')
-    print(f'RESULTADO: {result}')
 
     if len(result) > 0:
-        print(f'LISTA ANTES: {dfr}, TAMANHO {len(dfr)}')
+      result_list.append(result)
 
-        dfr = pd.concat([result])
 
-        print('ADICIONOU VALORES')
-        print(f'LISTA DEPOIS: {dfr}, TAMANHO {len(dfr)}')
-
+dfr = pd.concat(result_list).drop_duplicates()
 print(f'RESULTADO FINAL: {dfr}, TAMANHO {len(dfr)}')
 
 # @app.route('/')
