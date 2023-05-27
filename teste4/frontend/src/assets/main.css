@@ -1,0 +1,48 @@
+@import './base.css';
+
+.VuePagination nav{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.VuePagination nav ul{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.VuePagination nav ul li{
+  padding: 10px;
+}
+.VuePagination nav ul li button{
+  color: #fff;
+  cursor: pointer;
+  background: none;
+  border: 1px solid #324960;
+  border-radius: 10px;
+}
+
+.VuePagination nav ul li button:active {
+  background: #324960
+}
+
+.VuePagination{
+  display: flex;
+  justify-content: center;
+}
+#app {
+  font-weight: normal;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
