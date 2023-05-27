@@ -28,13 +28,11 @@ def cadastros():
         for i in range(len(dfc)):
             filter = df[dfc[i]].str.contains(busca, flags=re.UNICODE, case=False)
             result = df[filter]
-            print(busca)
             print(f'{len(result)} resultados na coluna {dfc[i]}')
             if len(result) > 0:
                 result_list.append(result)
 
         if len(result_list) == 0:
-            print('sem resultados')
             return result_list
 
         dfr = pd.concat(result_list, ignore_index=True).drop_duplicates()
