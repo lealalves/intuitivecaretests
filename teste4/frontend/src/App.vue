@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     sortData(c) {
-      this.order_icon = c
+      this.order_icon = Number(c)
 
       const column_index = Number(c)
       this.data.sort((a, b) => {
@@ -52,7 +52,7 @@ export default {
       const res = await req.json()
 
       this.data = res
-      console.log(this.data);
+
       this.loading = !this.loading
     }
   }
@@ -88,10 +88,16 @@ export default {
             <thead>
               <tr>
                 <th v-for="column in columns" :key="column" :value="columns.indexOf(column)" 
-                @click="$event = sortData($event.target.attributes[1].value)">
-                  <span id="column_txt">{{column}}</span>
-                  <span v-show="!order && columns.indexOf(column) == order_icon">&#x2193;</span>
-                  <span v-show="order && columns.indexOf(column) == order_icon">&#x2191;</span>
+                @click="$event = sortData($event.target.attributes['value'].value)">
+                  <span id="column_txt" :value="columns.indexOf(column)">
+                    {{column}}
+                  </span>
+                  <span v-show="!order && columns.indexOf(column) == order_icon" :value="columns.indexOf(column)">
+                    &#x2193;
+                  </span>
+                  <span v-show="order && columns.indexOf(column) == order_icon" :value="columns.indexOf(column)">
+                    &#x2191;
+                  </span>                  
                 </th>
               </tr>
             </thead>
@@ -195,6 +201,7 @@ header {
   font-size: 14px;
   border-collapse: collapse;
   white-space: break-spaces;
+  word-wrap: break-word;
   background-color: #fff;
   width: 100%;
 }
@@ -223,11 +230,7 @@ header {
 }
 
 #table_data tr:nth-child(even) {
-  background: #F8F8F8;
-}
-
-#column_txt {
-  margin-right: 5px;
+  background: #F4F4F4;
 }
 
 #pages {
@@ -241,15 +244,6 @@ header {
   #table_data fl-table {
     display: block;
     width: 100%;
-  }
-
-  .table-wrapper:before {
-    content: "Scroll horizontally >";
-    display: block;
-    text-align: right;
-    font-size: 11px;
-    color: #fff;
-    padding: 0 0 10px;
   }
 
   #table_data fl-table thead,
