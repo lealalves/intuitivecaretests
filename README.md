@@ -1,12 +1,11 @@
 # IntuitiveCare testes
 
-- Execute nas respectivas pastas os teste 1 e 2: <br>
+- Execute de cada vez, nas respectivas pastas, /teste1 e /teste2: <br>
 ``py main.py
 ``
-
-- Execute na respectiva pasta, o teste 4: <br>
+- Execute em /teste4: <br>
 ``py main.py
-``<br>
-- Na pasta teste4/frontend, execute: <br>
+``
+- E em seguida, na pasta teste4/frontend, execute: <br>
 ``npm run dev
-``<br>
+``
