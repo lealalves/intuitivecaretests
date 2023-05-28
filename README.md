@@ -12,4 +12,4 @@
 ``npm run dev
 ``
 
-E acesse http://localhost:5173(ou outra url local que aparecer no terminal) para visualizar o frontend da aplicação.
+E acesse http://localhost:5173 (ou outra url local que aparecer no terminal) para visualizar o frontend da aplicação.
