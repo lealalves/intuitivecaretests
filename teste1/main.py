@@ -32,17 +32,15 @@ def download(url, name, format):
 # função que compacta todos os arquivos dentro da pasta output
 def compactar_output():
     print('Compactando arquivos...')
-    # especificando o diretorio onde estao os arquivos que vao ser compactados
-    diretorio = 'teste1/output'
     # lista o nome de todos os arquivos dentro da pasta output
-    nomes_arquivo = os.listdir(diretorio)
+    nomes_arquivo = os.listdir(output_path)
     # varivel nome_zip define onde vai ser salvo o zip e o seu nome
-    nome_zip = os.path.join('teste1', 'output.zip')
+    nome_zip = os.path.join(main_path, 'output.zip')
     arquivozip = ZipFile(nome_zip, 'w', compression=ZIP_DEFLATED)
 
     for nome in nomes_arquivo:
         print(f'{nome} compactado em {nome_zip}')
-        arquivozip.write(os.path.join(diretorio, nome), nome)
+        arquivozip.write(os.path.join(output_path, nome), nome)
     arquivozip.close()
     print('Arquivos compactados!')
 
